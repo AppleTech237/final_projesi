@@ -1,7 +1,7 @@
 #Asagıda sıze verılen sablonu kendı projenıze gore uyarlayarak kendı gıthub projenızın readme.md sı olarak kullanınız.
 
 
-# 📌 Proje Başlığı
+# 📌 Stok Takip Uygulaması
 
 > Buraya projenizin başlığını yazınız. Örneğin: "Kütüphane Takip Sistemi", "Online Anket Uygulaması", "Günlük Tutma Uygulaması" gibi.
 
