@@ -15,11 +15,17 @@ Bu uygulama, depolardaki ürün miktarlarını kontrol etmek, ürünlerin kritik
 ## 🚀 Proje Özellikleri
 
 🔐 Yönetici ve depo sorumlusu giriş sistemi (Flask-Login ile)
+
 ➕ Ürün ekleme, silme ve güncelleme (CRUD)
+
 🔍 Ürün adı, kategori ve stok miktarına göre filtreleme
+
 ⚠️ Kritik seviyeye düşen ürünler için uyarı
+
 🧾 Stok hareketlerinin kayıt altına alınması
+
 📊 Raporlama ve analiz için stok hareket geçmişi
+
 💾 SQLite veya MySQL veritabanı desteği
 
 
