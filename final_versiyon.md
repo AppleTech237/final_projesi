@@ -3,6 +3,12 @@
 
 # 📌 Stok Takip Uygulaması
 
+
+Render'daki proje bağlantısı
+```
+
+```
+
 > Küçük ve orta ölçekli işletmelerin depo ürünlerini takip edebilmeleri için geliştirilmiş bir stok yönetim sistemidir.
 ---
 
@@ -14,6 +20,7 @@ Bu uygulama, depolardaki ürün miktarlarını kontrol etmek, ürünlerin kritik
 
 ## 🚀 Proje Özellikleri
 
+```
 🔐 Yönetici ve depo sorumlusu giriş sistemi (Flask-Login ile)
 
 ➕ Ürün ekleme, silme ve güncelleme (CRUD)
@@ -27,7 +34,7 @@ Bu uygulama, depolardaki ürün miktarlarını kontrol etmek, ürünlerin kritik
 📊 Raporlama ve analiz için stok hareket geçmişi
 
 💾 SQLite veya MySQL veritabanı desteği
-
+```
 
 ## ⚙️ Kurulum ve Çalıştırma
 
@@ -35,6 +42,7 @@ Bu uygulama, depolardaki ürün miktarlarını kontrol etmek, ürünlerin kritik
 
 Bu projeyi çalıştırmak için aşağıdaki bileşenlerin bilgisayarınızda kurulu olması gerekir:
 
+```
 Python 3.x
 
 pip
@@ -50,28 +58,25 @@ SQLAlchemy
 WTForms
 
 Bootstrap (arayüz için)
-
-> Not: Bu kütüphaneleri `requirements.txt` dosyasından otomatik olarak yükleyebilirsiniz.
+```
 
 ### 🚀 Uygulamayı Başlatma
 Proje klasörüne terminal ile gidin ve aşağıdaki komutu çalıştırın:
 
-bash
-Copy
-Edit
+```
 python app.py
-Uygulama tarayıcıda şu adreste çalışacaktır:
-http://127.0.0.1:5000
+```
+Uygulama tarayıcıda şu adreste çalışacaktır: http://127.0.0.1:5000
 
 
 ## 📂 Proje Dosya Yapısı
-
-├───── instance/                     # Yerel yapılandırma veya veritabanı dosyaları
+```
+├───── instance/                 # Yerel yapılandırma veya veritabanı dosyaları
 │
 ├───── static/
 │   └── images/                  # Uygulamada kullanılan görseller
 │       └── hero.png
-├───── templates/                   # Uygulamanın HTML şablon dosyaları
+├───── templates/                # Uygulamanın HTML şablon dosyaları
 │   ├── base.html                # Diğer sayfalar tarafından kullanılan temel şablon
 │   ├── dashboard.html           # Giriş yaptıktan sonra kullanıcı paneli
 │   ├── hakkinda.html            # Hakkında sayfası
@@ -89,20 +94,7 @@ http://127.0.0.1:5000
 ├── requirements.txt             # Gerekli Python kütüphaneleri listesi
 ├── README.md                    # Proje açıklama dosyası
 └── final_versiyon.md            # Final sürüm açıklama dosyası
-
 ```
-├── app.py # Ana Python uygulama dosyası
-├── templates/ # HTML şablonlarının bulunduğu klasör
-│ ├── index.html # Anasayfa
-│ ├── login.html # Giriş formu
-│ ├── register.html # Kayıt formu
-│ └── dashboard.html # Kullanıcı kontrol paneli
-├── static/ # Statik dosyalar (CSS, JS, resimler)
-│ └── style.css # Uygulamaya ait stil dosyası
-├── requirements.txt # Gerekli Python paketlerini içeren dosya
-└── README.md # Proje açıklama dosyası
-```
-
 
 
 
