@@ -3,43 +3,47 @@
 
 # 📌 Stok Takip Uygulaması
 
-> Buraya projenizin başlığını yazınız. Örneğin: "Kütüphane Takip Sistemi", "Online Anket Uygulaması", "Günlük Tutma Uygulaması" gibi.
-
+> Küçük ve orta ölçekli işletmelerin depo ürünlerini takip edebilmeleri için geliştirilmiş bir stok yönetim sistemidir.
 ---
 
 ## 🧾 Proje Tanıtımı
 
-Buraya projenizin ne olduğunu kısaca yazınız. Örneğin:  
-Bu uygulama, kullanıcıların kitap ödünç alma işlemlerini takip edebileceği bir kütüphane yönetim sistemidir. Flask framework’ü ile geliştirilmiş olup, kullanıcı girişi, kitap ekleme/silme ve geçmiş kayıtları görüntüleme gibi işlemler yapılabilir.
+Bu uygulama, depolardaki ürün miktarlarını kontrol etmek, ürünlerin kritik stok seviyelerini belirlemek ve stok giriş-çıkış hareketlerini kaydetmek amacıyla geliştirilmiştir. Flask framework’ü kullanılarak hazırlanmıştır. Kullanıcı girişi, ürün ekleme, stok güncelleme, arama ve raporlama gibi temel işlevleri destekler.
 
 ---
 
 ## 🚀 Proje Özellikleri
 
-Aşağıya projenizin sunduğu temel işlevleri maddeler halinde yazınız:
-Örneğin:  
-- 🔐 Kullanıcı kayıt ve giriş işlemleri
-- 📚 Yeni veri (örneğin kitap, not, günlük) ekleyebilme
-- 📝 Verileri düzenleyebilme ve silebilme
-- 🔎 Arama / filtreleme özellikleri
-- 📦 Veritabanı bağlantısı ile kalıcı veri saklama
+🔐 Yönetici ve depo sorumlusu giriş sistemi (Flask-Login ile)
+➕ Ürün ekleme, silme ve güncelleme (CRUD)
+🔍 Ürün adı, kategori ve stok miktarına göre filtreleme
+⚠️ Kritik seviyeye düşen ürünler için uyarı
+🧾 Stok hareketlerinin kayıt altına alınması
+📊 Raporlama ve analiz için stok hareket geçmişi
+💾 SQLite veya MySQL veritabanı desteği
 
----
 
 ## ⚙️ Kurulum ve Çalıştırma
 
 ### ✅ Gereksinimler
-Örneğin:  
 
-Bu projeyi çalıştırmak için bilgisayarınızda aşağıdaki yazılımlar kurulu olmalıdır:
+Bu projeyi çalıştırmak için aşağıdaki bileşenlerin bilgisayarınızda kurulu olması gerekir:
 
-- Python 3.x
-- .....
+Python 3.x
 
-Ayrıca aşağıdaki kütüphaneler kullanılmaktadır:
+pip
 
-- flask
-- .....
+Kullanılan kütüphaneler:
+
+Flask
+
+Flask-Login
+
+SQLAlchemy
+
+WTForms
+
+Bootstrap (arayüz için)
 
 > Not: Bu kütüphaneleri `requirements.txt` dosyasından otomatik olarak yükleyebilirsiniz.
 
