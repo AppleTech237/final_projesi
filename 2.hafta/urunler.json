@@ -1,0 +1,50 @@
+[
+    {
+        "urun_id": 1,
+        "urun_adi": "macabo",
+        "aciklama": "iyi",
+        "miktar": 10,
+        "min_miktar": 0,
+        "fiyat": 10.0,
+        "kategori": "yiyecek_icecek",
+        "tedarikci": null,
+        "konum": null,
+        "barkod": null,
+        "image": null,
+        "tarihi_added": "2025-05-25T11:02:09.824563",
+        "tarihi_updated": "2025-05-25T11:02:09.824580",
+        "user_id": 1
+    },
+    {
+        "urun_id": 2,
+        "urun_adi": "viande",
+        "aciklama": "bon",
+        "miktar": 200,
+        "min_miktar": 0,
+        "fiyat": 100.0,
+        "kategori": "yiyecek_icecek",
+        "tedarikci": null,
+        "konum": null,
+        "barkod": null,
+        "image": null,
+        "tarihi_added": "2025-05-25T11:03:40.899546",
+        "tarihi_updated": "2025-05-25T11:03:40.899555",
+        "user_id": 1
+    },
+    {
+        "urun_id": 3,
+        "urun_adi": "sel",
+        "aciklama": "erd",
+        "miktar": 24,
+        "min_miktar": 0,
+        "fiyat": 10.0,
+        "kategori": "",
+        "tedarikci": null,
+        "konum": null,
+        "barkod": null,
+        "image": null,
+        "tarihi_added": "2025-05-25T11:58:39.513961",
+        "tarihi_updated": "2025-05-25T11:58:39.513970",
+        "user_id": 1
+    }
+]

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu - Stok Listesi{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2><i class="fas fa-boxes me-2"></i>Ürün Listesi</h2>
+        <p class="text-secondary">Envanterinizi yönetin</p>
+    </div>
+    <a href="{{ url_for('stok_ekle') }}" class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Ürün ekle
+    </a>
+</div>
+
+<form method="GET" action="{{ url_for('stok_listesi') }}">
+  <div class="card mb-4"> 
+    <div class="card-body">
+        <div class="row g-2">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" name="filtre" class="form-control" placeholder="Bir ürün arayın..." value="{{ request.args.get('filtre', '') }}">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-outline-primary w-100">Filtrele</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>
+
+
+<div class="card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-secondary">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ürün Adı</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Miktar</th>
+                        <th scope="col">Birim fiyatı</th>
+                        <th scope="col">Toplam değer</th>
+                        <th scope="col">Durum</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for urun in urunler %}
+                    <tr>
+                        <td>{{ urun.urun_id }}</td>
+                        <td>{{ urun.urun_adi }}</td>
+                        <td>{{ urun.kategori }}</td>
+                        <td>{{ urun.miktar }}</td>
+                        <td>{{ urun.fiyat }} ₺ </td>
+                        <td>{{ urun.miktar * urun.fiyat }} ₺ </td>
+                        <td>
+                            {% if urun.miktar == 0 %}
+                            <span class="badge bg-danger">Ayrılmak</span>
+                            {% elif urun.miktar < 10 %}
+                            <span class="badge bg-warning">Zayıf</span>
+                            {% else %}
+                            <span class="badge bg-success">Stokta var</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+    <!-- Bouton updt -->
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="{{ url_for('stok_duzenle', urun_id=urun.urun_id) }}" class="btn btn-outline-primary" title="Değiştirmek için">
+        <i class="fas fa-edit"></i></a>
+                                <button type="button" class="btn btn-outline-danger" w-100" data-bs-toggle="modal" data-bs-target="#deleteModal" title="SİLMEK">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-info" title="Detaylar">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                           <div class="modal-content">
+                                <div class="modal-header bg-danger text-white">
+                                    <h5 class="modal-title" id="deleteModalLabel">Silmeyi onayla</h5>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                               </div>
+                                <div class="modal-body">
+                                    <p>Ürünü silmek istediğinize emin misiniz? <strong>"{{ urun.urun_adi }}"</strong> ?</p>
+                                    <p class="mb-0 text-danger">Bu eylem geri döndürülemez.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal etmek</button>
+                                    <button type="button" class="btn btn-danger">Kalıcı olarak sil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+        </div>
+        
+    </div>
+   
+</div>
+
+
+{% endblock %}

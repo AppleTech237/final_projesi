@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu | Ürün Yönetimi{% endblock %}
+
+{% block content %}
+<section class="hero py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-4"><span style="background: linear-gradient(90deg, #0ff, #f0f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ürün kataloğunuzu</span> verimli bir şekilde yönetin</h1>
+            <p class="lead mb-4 text-secondary">Bakoba Gensu, ürünlerinizi yönetmek, takip etmek ve analiz etmek için eksiksiz bir platformdur. İş akışınızı basitleştirin ve satışlarınızı artırın.</p>
+            <div class="d-flex gap-3">
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Şimdi başla</a>
+                <a href="{{ url_for('stok_listesi') }}" class="btn btn-outline">Ürünleri görüntüle</a>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+            <img src="/static/images/hero.png" alt="L'image du boss" class="img-fluid rounded-3" style="max-height: 450px; object-fit: cover;" onerror="this.src='/api/placeholder/600/450'; this.onerror=null;">
+        </div>
+    </div>
+</section>
+
+<section class="features py-5 mt-5">
+    <h2 class="text-center mb-5">Özellikler <span style="background: linear-gradient(90deg, #0ff, #f0f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">principales</span></h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="fas fa-layer-group fa-3x" style="color: #0ff;"></i>
+                    </div>
+                    <h3 class="card-title h5 text-light">Katalog yönetimi</h3>
+                    <p class="card-text text-secondary">Dijital ürünlerinizi kategorilere, etiketlere ve özel niteliklere göre düzenleyin.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="fas fa-chart-line fa-3x" style="color: #f0f;"></i>
+                    </div>
+                    <h3 class="card-title h5 text-light">Satış istatistikleri</h3>
+                    <p class="card-text text-secondary">Detaylı analitik gösterge panelleriyle ürün performansınızı takip edin.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="fas fa-bolt fa-3x" style="background: linear-gradient(90deg, #0ff, #f0f); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    </div>
+                    <h3 class="card-title h5 text-light">Otomasyon</h3>
+                    <p class="card-text text-secondary">Ürün teslimatınız ve güncellemeleriniz için otomatik iş akışları ayarlayın.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta py-5 mt-5" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1)); border-radius: 12px;">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+            <h2 class="mb-4">Dijital ürünlerinizi yönetmeye hazır mısınız?</h2>
+            <p class="lead mb-4 text-secondary">Dijital ürünlerini yönetmek için Bakoba Gensu'yu kullanan binlerce girişimci ve işletmeye katılın.</p>
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Ücretsiz bir hesap oluşturun</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

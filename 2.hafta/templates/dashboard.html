@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu - Kontrol Paneli{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2><i class="fas fa-tachometer-alt me-2"></i>Kontrol Paneli</h2>
+        <p class="text-light">Envanterinizin genel görünümü ve temel istatistikler</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Toplam ürünler</h6>
+                        
+                        <h2 class="mb-0">{{ toplam_urunler }}</h2>
+                    </div>
+                    <i class="fas fa-box fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Stok değeri</h6>
+                        <h2 class="mb-0">{{ "{:,.2f}".format(stok_degeri) }} ₺</h2>
+                    </div>
+                    <i class="fas fa-light fa-coins fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Düşük stok</h6>
+                        
+                        <h2 class="mb-0">{{ dusuk_stok_sayisi }}</h2>
+                    </div>
+                    <i class="fas fa-exclamation-triangle fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-danger text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Stoklar tükendi</h6>
+                       
+                        <h2 class="mb-0">{{ stok_tukendi_sayisi }}</h2>
+                    </div>
+                    <i class="fas fa-times-circle fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 text-light"><i class="fas fa-chart-line me-2 text-light"></i>Stok gelişimi</h5>
+                <div>
+                    <select class="form-select form-select-sm">
+                        <option>Geçen ay</option>
+                        <option>Geçen 3 ay</option>
+                        <option>Geçen yil</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body" style="background-color: rgb(4, 113, 238);">
+                <div class="chart-container" style="height: 300px; background-color: aliceblue; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-dark text-center">Hisse senedi evrim grafiği<br>(Hayali veriler)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 text-secondary"><i class="fas fa-clipboard-list me-2 text-secondary"></i>Son etkinlikler</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success me-2">Giriş</span>
+                            <span>Stoklara 20 adet otomotiv eklendi</span>
+                        </div>
+                        <small class="text-muted">2 saat önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-danger me-2">Çıkış</span>
+                            <span>5 taşınabilir otomotiv stoktan çekildi</span>
+                        </div>
+                        <small class="text-muted">5 saat önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-warning me-2">Uyarı</span>
+                            <span>"Macbook" için düşük stok</span>
+                        </div>
+                        <small class="text-muted">1 gün önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-info me-2">Güncelleme</span>
+                            <span>15 ürün için güncellenmiş fiyatlar</span>
+                        </div>
+                        <small class="text-muted">2 gün önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success me-2">Giriş</span>
+                            <span>Stoklara 100 takiles durum eklendi</span>
+                        </div>
+                        <small class="text-muted">3 gün önce</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="text-decoration-none">Tüm etkinlikleri görün</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0 text-light"><i class="fas fa-tags me-2 text-light"></i>Kategoriye göre</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-light text-center">Kategorilerin pasta grafiği<br>(Hayali veriler)</p>
+                </div>
+                <div class="mt-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Yiyecek ve içecekler</span>
+                        <span class="badge bg-primary">25%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 25%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Giyim</span>
+                        <span class="badge bg-success">20%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 20%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Elektronik</span>
+                        <span class="badge bg-danger">10%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Endüstriyel malzeme ve malzemeler</span>
+                        <span class="badge bg-success">20%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 20%"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Ofis ve kırtasiye</span>
+                        <span class="badge bg-danger">15%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 15%"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Otomotiv</span>
+                        <span class="badge bg-danger">10%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-light">Digerleri</span>
+                        <span class="badge bg-secondary">5%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 5%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu - Bir ürünü düzenleyin{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Hoş geldin</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('stok_listesi') }}">Ürün Listesi</a></li>
+                <li class="breadcrumb-item active text-secondary" aria-current="page">Bir ürünü düzenleyin #{{ urun.urun_id }}</li>
+            </ol>
+        </nav>
+        <h2><i class="fas fa-edit me-2"></i>Bir ürünü düzenleyin</h2>
+        <p class="text-secondary">Ürün bilgilerini düzenleyin "{{ urun.urun_adi }}"</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="#">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="urun_adi" class="form-label">Ürün Adı <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="urun_adi" name="urun_adi" value="{{ urun.urun_adi }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="kategori" class="form-label">Kategori <span class="text-danger">*</span></label>
+                            <select class="form-select" id="kategori" name="kategori" required>
+                                <option value="giyim" {% if urun.kategori == 'giyim' %}selected{% endif %}>Giyim</option>
+                                <option value="elektronik" {% if urun.kategori == 'elektronik' %}selected{% endif %}>Elektronik</option>
+                                <option value="yiyecek_icecek" {% if urun.kategori == 'yiyecek_icecek' %}selected{% endif %}>Yiyecek ve içecekler</option>
+                                <option value="donanim" {% if urun.kategori == 'donanim' %}selected{% endif %}>Endüstriyel malzeme ve malzemeler</option>
+                                <option value="eczane" {% if urun.kategori == 'eczane' %}selected{% endif %}>Eczacılık ve sağlık</option>
+                                <option value="ofis" {% if urun.kategori == 'ofis' %}selected{% endif %}>Ofis ve kırtasiye</option>
+                                <option value="otomotiv" {% if urun.kategori == 'otomotiv' %}selected{% endif %}>Otomotiv</option>
+                                <option value="Diğerleri" {% if urun.kategori == 'Diğerleri' %}selected{% endif %}>Diğerleri</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="miktar" class="form-label">Miktar <span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="miktar" name="miktar" min="0" value="{{ urun.miktar }}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="min_miktar" class="form-label">Asgari miktar</label>
+                            <input type="number" class="form-control" id="min_miktar" name="min_miktar" min="0" value="10">
+                            <div class="form-text">Düşük stok uyarı eşiği</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fiyat" class="form-label">Birim fiyatı (₺) <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="fiyat" name="fiyat" min="0" step="0.01" value="{{ urun.fiyat }}" required>
+                                <span class="input-group-text">₺</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="tedarikci" class="form-label">Tedarikçi</label>
+                        <input type="text" class="form-control" id="tedarikci" name="tedarikci" value="Örnek Tedarikçi">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="aciklama" class="form-label">Tanım</label>
+                        <textarea class="form-control" id="aciklama" name="aciklama" rows="3">Detaylı ürün açıklaması {{ urun.urun_adi }}.</textarea>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="konum" class="form-label">Konum</label>
+                            <input type="text" class="form-control" id="konum" name="konum" value="Depo A, Raf 5">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="barkod" class="form-label">Barkod</label>
+                            <input type="text" class="form-control" id="barkod" name="barkod" value="123456789012">
+                        </div>
+                    </div>
+                    <!-- <div class="mb-3">
+                            <label for="urun_resmi" class="form-label">Ürün resmi</label>
+                            <input type="file" class="form-control" id="urun_resmi" name="urun_resmi">
+                        </div>
+                    -->
+                   
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('stok_listesi') }}" class="btn btn-secondary">İptal etmek</a>
+                        <button type="submit" class="btn btn-primary">Değişiklikleri kaydet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0 text-secondary"><i class="fas fa-info-circle me-2 text-secondary"></i>Bilgi</h5>
+            </div>
+            <div class="card-body text-secondary">
+                <p class="mb-2"><strong>Ürün Kimliği:</strong> #{{ urun.urun_id }}</p>
+                <p class="mb-2"><strong>Eklenme tarihi:</strong> 15/03/2025</p>
+                <p class="mb-2"><strong>Son değişiklik:</strong> 25/04/2025</p>
+                <p class="mb-0"><strong>Tarafından eklendi:</strong> Yönetici</p>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0 text-secondary"><i class="fas fa-history me-2 text-secondary"></i>Hareketlerin tarihi</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">+10</span>
+                            <small class="text-secondary">20/04/2025</small>
+                        </div>
+                        <div class="mt-1">Stok ekleme</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-danger">-5</span>
+                            <small class="text-secondary">15/04/2025</small>
+                        </div>
+                        <div class="mt-1">Envanter çekilmesi</div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-info">Güncelleme</span>
+                            <small class="text-secondary">10/04/2025</small>
+                        </div>
+                        <div class="mt-1">Fiyat değiştirildi: 80₺ → 100₺</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="text-decoration-none">Tüm geçmişi göster</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-trash me-2"></i>Tehlike bölgesi</h5>
+            </div>
+            <div class="card-body">
+                <p>Bir ürünü silmek kesin bir işlemdir ve geri alınamaz.</p>
+                <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    Bu ürünü silmek
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmation de suppression -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">Silmeyi onayla</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Ürünü silmek istediğinize emin misiniz? <strong>"{{ urun.urun_adi }}"</strong> ?</p>
+                <p class="mb-0 text-danger">Bu eylem geri döndürülemez.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal etmek</button>
+                <button type="button" class="btn btn-danger">Kalıcı olarak sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
