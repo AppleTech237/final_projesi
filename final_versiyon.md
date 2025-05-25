@@ -54,12 +54,42 @@ Bootstrap (arayüz için)
 > Not: Bu kütüphaneleri `requirements.txt` dosyasından otomatik olarak yükleyebilirsiniz.
 
 ### 🚀 Uygulamayı Başlatma
-Örneğin: 
-Uygulama tarayıcınızda http://127.0.0.1:5000/ adresinde çalışacaktır.
+Proje klasörüne terminal ile gidin ve aşağıdaki komutu çalıştırın:
+
+bash
+Copy
+Edit
+python app.py
+Uygulama tarayıcıda şu adreste çalışacaktır:
+http://127.0.0.1:5000
 
 
 ## 📂 Proje Dosya Yapısı
-asagıdakı agacı kendı sıstemınıze gore duzenlemelısınız. bu sadece ornek olarak verılmıstır.
+
+├───── instance/                     # Yerel yapılandırma veya veritabanı dosyaları
+│
+├───── static/
+│   └── images/                  # Uygulamada kullanılan görseller
+│       └── hero.png
+├───── templates/                   # Uygulamanın HTML şablon dosyaları
+│   ├── base.html                # Diğer sayfalar tarafından kullanılan temel şablon
+│   ├── dashboard.html           # Giriş yaptıktan sonra kullanıcı paneli
+│   ├── hakkinda.html            # Hakkında sayfası
+│   ├── index.html               # Ana sayfa
+│   ├── login.html               # Giriş yapma sayfası
+│   ├── register.html            # Kayıt olma sayfası
+│   ├── stok_duzenle.html        # Ürün düzenleme sayfası
+│   ├── stok_ekle.html           # Yeni ürün ekleme sayfası
+│   └── stok_listesi.html        # Stoktaki ürünlerin listesi
+│
+├── app.py                       # Flask uygulamasının ana dosyası
+├── db2json.py                   # Veritabanını JSON formatına aktaran script
+├── urunler.json                 # Ürünlere ait örnek JSON verisi
+├── users.json                   # Kullanıcılara ait örnek JSON verisi
+├── requirements.txt             # Gerekli Python kütüphaneleri listesi
+├── README.md                    # Proje açıklama dosyası
+└── final_versiyon.md            # Final sürüm açıklama dosyası
+
 ```
 ├── app.py # Ana Python uygulama dosyası
 ├── templates/ # HTML şablonlarının bulunduğu klasör
